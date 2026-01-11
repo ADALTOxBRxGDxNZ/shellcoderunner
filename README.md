@@ -28,6 +28,8 @@ This project is intended for **educational and defensive research purposes only*
 
 ### Recommended Method
 ```bash
+sudo apt update && sudo apt install -y python3 python3-pip mingw-w64 && python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 pipx install shellcoderunner-aes==1.0.0
 ```
 
