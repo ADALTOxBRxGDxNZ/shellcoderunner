@@ -24,6 +24,47 @@ This project is intended for **educational and defensive research purposes only*
 
 ---
 
+## Installation
+
+### Recommended Method
+```bash
+pipx install shellcoderunner-aes==1.0.0
+```
+
+```bash
+shellcoderunneraes <C2_shellcode>.bin --aes pain05 --compile
+```
+### OR
+
+Required Dependencies (Linux):
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip mingw-w64
+python3 -m pip install pycryptodome
+```
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jaytiwari05/shellcoderunner.git
+cd shellcoderunner
+```
+
+Make the script globally accessible:
+
+```bash
+cp shellcoderunneraes.py /usr/local/bin/shellcoderunneraes.py && chmod +x /usr/local/bin/shellcoderunneraes.py
+```
+
+## Usage
+
+Generate and compile a shellcode loader using AES encryption:
+
+```bash
+shellcoderunneraes.py <C2_shellcode>.bin --aes pain05 --compile
+```
+
+---
+
 ## Key Features
 
 * AES-128-CBC encrypted shellcode
@@ -46,37 +87,6 @@ shellcoderunner/
 ```
 
 ---
-
-## Installation
-
-Required Dependencies (Linux):
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip mingw-w64
-python3 -m pip install pycryptodome
-```
-
-Clone the repository:
-
-```bash
-git clone https://github.com/jaytiwari05/shellcoderunner.git
-cd shellcoderunner
-```
-
-Make the script globally accessible:
-
-```bash
-cp shellcoderunneraes.py /usr/local/bin/shellcoderunneraes.py && chmod +x /usr/local/bin/shellcoderunneraes.py
-```
-
----
-
-## Usage
-
-Generate and compile a shellcode loader using AES encryption:
-
-```bash
-shellcoderunneraes.py <C2_shellcode>.bin --aes pain05 --compile
-```
 
 ### Arguments
 
