@@ -5,7 +5,7 @@
 **ShellcodeRunner** is a research-focused project designed to help security enthusiasts, red teamers, and malware researchers understand **how custom shellcode loaders work on Windows**.
 
 ```bash
-pipx install shellcoderunner-aes==1.0.0
+pipx install shellcoderunner-aes
 ```
 
 This repository demonstrates:
@@ -43,7 +43,7 @@ https://github.com/user-attachments/assets/26a17f65-a135-4e0f-a5c2-2c916daac91b
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip mingw-w64 && python3 -m pip install --user pipx
 python3 -m pipx ensurepath
-pipx install shellcoderunner-aes==1.0.0
+pipx install shellcoderunner-aes
 ```
 
 ```bash
